@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c045b7697ff11aebf11cf8e0f812834",
+    "content-hash": "3125dbfead0c91dd5994024741c4d656",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -125,6 +125,65 @@
                 "source": "https://github.com/minkphp/Mink/tree/v1.10.0"
             },
             "time": "2022-03-28T14:22:43+00:00"
+        },
+        {
+            "name": "beyondcode/laravel-prose-linter",
+            "version": "dev-review",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-prose-linter.git",
+                "reference": "f2425616001c81c1e4b95635fa1b5e13723276fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-prose-linter/zipball/f2425616001c81c1e4b95635fa1b5e13723276fc",
+                "reference": "f2425616001c81c1e4b95635fa1b5e13723276fc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0",
+                "symfony/finder": "^4.0|^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Beyondcode\\LaravelProseLinter\\LaravelProseLinterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Beyondcode\\LaravelProseLinter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Diana Scharf",
+                    "email": "diana@beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Aweeeeesomeeeee",
+            "homepage": "https://github.com/beyondcode/laravel-prose-linter",
+            "keywords": [
+                "beyondcode",
+                "laravel-prose-linter"
+            ],
+            "support": {
+                "issues": "https://github.com/beyondcode/laravel-prose-linter/issues",
+                "source": "https://github.com/beyondcode/laravel-prose-linter/tree/review"
+            },
+            "time": "2021-06-07T12:55:03+00:00"
         },
         {
             "name": "brick/math",
@@ -9064,7 +9123,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "beyondcode/laravel-prose-linter": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

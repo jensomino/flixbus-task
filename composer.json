@@ -6,12 +6,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "beyondcode/laravel-prose-linter": "dev-review",
         "dmore/chrome-mink-driver": "^2.8",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5",
+        "laravel/tinker": "^2.7",
         "symfony/config": "^5.4"
     },
     "require-dev": {
