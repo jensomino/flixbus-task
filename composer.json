@@ -13,7 +13,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.7",
-        "symfony/config": "^5.4"
+        "symfony/config": "^5.4",
+        "tightenco/tlint": "^6.3"
     },
     "require-dev": {
         "behat/behat": "^3.10",
