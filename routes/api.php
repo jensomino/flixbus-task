@@ -1,5 +1,7 @@
 <?php
 
+use App\Constant\Endpoints;
+use App\Http\Controllers\TripController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('')->group(function(){
+    Route::apiResource(Endpoints::TRIP_API_RESOURCE, TripController::class);
 });
