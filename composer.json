@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "beyondcode/laravel-prose-linter": "dev-review",
         "dmore/chrome-mink-driver": "^2.8",
         "fruitcake/laravel-cors": "^2.0",
@@ -16,10 +16,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.7",
-        "symfony/config": "^5.4",
-        "tightenco/tlint": "^6.3",
-        "codeception/module-phpbrowser": "^1.0.0",
-        "codeception/module-asserts": "^1.0.0"
+        "optimus/bruno": "^6.0",
+        "symfony/config": "^5.4"
     },
     "require-dev": {
         "behat/behat": "^3.10",
@@ -32,7 +30,8 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpspec/phpspec": "^7.2",
-        "phpunit/phpunit": "^9.5.10"
+        "phpunit/phpunit": "^9.5.10",
+        "tightenco/tlint": "^6.3"
     },
     "autoload": {
         "psr-4": {
