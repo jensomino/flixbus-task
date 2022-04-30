@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Constant\Schema;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class TripReservations extends Model
 {
@@ -33,5 +35,38 @@ class TripReservations extends Model
     public function trip()
     {
         return $this->belongsTo(Trips::class);
+    }
+
+    /**
+     * @param int $tripId
+     * @param int $tripTotalSpot
+     * @param string $passengerName
+     * @param int $selectedSpots
+     * @return mixed
+     */
+    public static function checkCapacityAndReserve(int $tripId,int $tripTotalSpot,string $passengerName,int $selectedSpots)
+    {
+        $result = DB::transaction(function () use ($tripId,$tripTotalSpot,$passengerName,$selectedSpots){
+            $reserve = DB::table(Schema::DB_TRIP_RESERVATION)
+                ->selectRaw(DB::raw('SUM(selected_spots) AS total'))
+                ->groupBy()
+                ->where('trip_id','=',$tripId)
+                ->get();
+
+            $totalReserved = $reserve[0]->total;
+            $wantedReserve = $totalReserved + $selectedSpots;
+            if ($tripTotalSpot >= $wantedReserve){
+                DB::table(Schema::DB_TRIP_RESERVATION)->insert([
+                    'trip_id' => $tripId,
+                    'passenger_name' => $passengerName,
+                    'selected_spots' => $selectedSpots,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+                return true;
+            }
+            return false;
+        });
+        return $result;
     }
 }
