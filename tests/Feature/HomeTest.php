@@ -11,7 +11,7 @@ class HomeTest extends TestCase
      *
      * @return void
      */
-    public function home_example()
+    public function test_home_example()
     {
         $response = $this->get('/');
 

@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::middleware('throttle')->group(function(){
     Route::apiResource(Endpoints::TRIP_API_RESOURCE, TripController::class);
+    Route::post(Endpoints::TRIPACTION_RESERVE_POST, Endpoints::TRIPACTION_RESERVE_POST_ACTION)->name('tripaction.reserve');
+    Route::post(Endpoints::TRIPACTION_CANCEL_POST, Endpoints::TRIPACTION_CANCEL_POST_ACTION)->name('tripaction.cancel');
 });
