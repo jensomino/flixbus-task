@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Support\Facades\Http;
 
 class CancelTest extends TestCase
 {

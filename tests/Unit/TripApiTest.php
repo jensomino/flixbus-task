@@ -2,9 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Illuminate\Support\Facades\Http;
-
+use Tests\TestCase;
 
 class TripApiTest extends TestCase
 {

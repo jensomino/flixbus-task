@@ -2,7 +2,6 @@
 
 use App\Constant\Endpoints;
 use App\Http\Controllers\TripController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
