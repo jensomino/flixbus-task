@@ -51,6 +51,7 @@ class TripReservations extends Model
                 ->selectRaw(DB::raw('SUM(selected_spots) AS total'))
                 ->groupBy()
                 ->where('trip_id','=',$tripId)
+                ->whereNull('deleted_at')
                 ->get();
 
             $totalReserved = $reserve[0]->total;
@@ -68,5 +69,16 @@ class TripReservations extends Model
             return false;
         });
         return $result;
+    }
+
+    /**
+     * @param int $tripId
+     * @param string $passengerName
+     * @return mixed
+     */
+    public static function deleteReservation(int $tripId,string $passengerName){
+        return static::query()->where('trip_id','=', $tripId)
+            ->where('passenger_name', '=', $passengerName)
+            ->delete();
     }
 }

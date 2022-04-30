@@ -13,7 +13,9 @@ class CancelReq extends BaseApiFormReqs
     public function rules()
     {
         return [
-            //
+            'origin' => 'required',
+            'destination' => 'required',
+            'passenger_name' => 'required',
         ];
     }
 }

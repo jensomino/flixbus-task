@@ -30,8 +30,10 @@ class TripactionController extends Controller
 
             $tripAction = TripReservations::checkCapacityAndReserve((int) $trip['id'],(int) $trip['total_spots'], $passengerName,$selectedSpots);
             if ($tripAction){
+                Log::info('[TripactionController][reserve] the reservation has been done',$req->toArray());
                 return new JsonResponse( ['status' => 'success','data' => $req->toArray()] ,HttpCode::HTTP_CREATED);
             } else {
+                Log::error('[TripactionController][reserve] ran out of reservation capacity',$req->toArray());
                 return new JsonResponse( ['status' => 'failed','message' => 'there is not enough spot to reserve'] ,HttpCode::HTTP_UNPROCESSABLE_ENTITY);
             }
         } catch (\Exception $err){
@@ -40,11 +42,26 @@ class TripactionController extends Controller
         }
     }
 
+    /**
+     * @param CancelReq $req
+     * @return JsonResponse
+     * @throws ReservationException
+     */
     public function cancel(CancelReq $req) : JsonResponse
     {
-        dd($req->all());
+        $origin = $req->get('origin',null);
+        $destination = $req->get('destination',null);
+        $passengerName = $req->get('passenger_name',null);
 
-        Log::info('[TripactionController][cancel] the trip has been deleted');
-        return new JsonResponse( ['data' => '$trip'] ,HttpCode::HTTP_OK);
+        try{
+            $trip = Trips::findWithCondition($origin,$destination);
+            TripReservations::deleteReservation((int) $trip['id'],$passengerName);
+            Log::info('[TripactionController][cancel] the trip has been canceled',$req->toArray());
+
+            return new JsonResponse( ['status' => 'success', 'message' => 'the trip has been canceled','data' => $req->toArray()] ,HttpCode::HTTP_OK);
+        } catch (\Exception $err){
+            Log::error('[TripactionController][cancel] there is not any trip with this condition',$req->toArray());
+            throw new ReservationException($err->getMessage(),$err->getCode());
+        }
     }
 }
