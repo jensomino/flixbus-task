@@ -24,7 +24,7 @@ class TripApiTest extends TestCase
     {
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 50; $i++){
+        for ($i = 0; $i < 10; $i++){
             $response = Http::post('http://localhost/api/trips',[
                 'origin' => $faker->city(),
                 'destination' => $faker->city(),

@@ -1,5 +1,6 @@
 <?php
 
+use App\Constant\Endpoints;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get(Endpoints::PANEL_INDEX,Endpoints::PANEL_INDEX_ACTION);

@@ -34,6 +34,11 @@ class Trips extends Model
         'cancel_time',
     ];
 
+    public function reservation()
+    {
+        return $this->hasMany(TripReservations::class,'trip_id');
+    }
+
     /**
      * @param string $origin
      * @param string $destination

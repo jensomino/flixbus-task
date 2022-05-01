@@ -1,0 +1,1139 @@
+{
+	"info": {
+		"_postman_id": "c7ade6f2-4088-48b2-9207-ac04855f3158",
+		"name": "FlixBus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "Get List Of Trip",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"limit\": 20,\n    \"page\": 0,\n    \"sort\": [\n        {\n            \"key\": \"created_at\",\n            \"direction\": \"DESC\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{flix_base_url}}trips",
+							"host": [
+								"{{flix_base_url}}trips"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "sorting",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get List Of Trip",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"limit\": 2,\n    \"page\": 0,\n    \"sort\": [\n        {\n            \"key\": \"created_at\",\n            \"direction\": \"DESC\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{flix_base_url}}trips",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "sorting",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 19:58:38 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 19:58:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "53"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 3,\n    \"per_page\": 2,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"origin\": \"tehran\",\n            \"destination\": \"shiraz\",\n            \"total_spots\": 12,\n            \"start_time\": \"2022-04-29 00:00:00\",\n            \"end_time\": \"2022-04-30 00:00:00\",\n            \"cancel_time\": 1,\n            \"created_at\": \"2022-04-29T19:50:57.000000Z\",\n            \"updated_at\": \"2022-04-29T19:50:57.000000Z\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 2,\n            \"origin\": \"tehran\",\n            \"destination\": \"shiraz\",\n            \"total_spots\": 12,\n            \"start_time\": \"2022-04-29 00:00:00\",\n            \"end_time\": \"2022-04-30 00:00:00\",\n            \"cancel_time\": 1,\n            \"created_at\": \"2022-04-29T19:46:25.000000Z\",\n            \"updated_at\": \"2022-04-29T19:46:25.000000Z\",\n            \"deleted_at\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create A New Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{flix_base_url}}trips?origin=shiraz&destination=isfahan&total_spots=10&start_time=2022-04-29&end_time=2022-04-30&cancel_time=1",
+							"host": [
+								"{{flix_base_url}}trips"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "shiraz"
+								},
+								{
+									"key": "destination",
+									"value": "isfahan"
+								},
+								{
+									"key": "total_spots",
+									"value": "10"
+								},
+								{
+									"key": "start_time",
+									"value": "2022-04-29"
+								},
+								{
+									"key": "end_time",
+									"value": "2022-04-30"
+								},
+								{
+									"key": "cancel_time",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create A New Trip (error)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}trips?origin=tehran&destination=shiraz&start_time=2022-04-29&end_time=2022-04-30&cancel_time=1",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "tehran"
+										},
+										{
+											"key": "destination",
+											"value": "shiraz"
+										},
+										{
+											"key": "total_spots",
+											"value": "12",
+											"disabled": true
+										},
+										{
+											"key": "start_time",
+											"value": "2022-04-29"
+										},
+										{
+											"key": "end_time",
+											"value": "2022-04-30"
+										},
+										{
+											"key": "cancel_time",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 17:21:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 17:21:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"failed\",\n    \"message\": {\n        \"total_spots\": [\n            \"The total spots field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Create A New Trip (success)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}trips?origin=tehran&destination=shiraz&total_spots=12&start_time=2022-04-29&end_time=2022-04-30&cancel_time=1",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "tehran"
+										},
+										{
+											"key": "destination",
+											"value": "shiraz"
+										},
+										{
+											"key": "total_spots",
+											"value": "12"
+										},
+										{
+											"key": "start_time",
+											"value": "2022-04-29"
+										},
+										{
+											"key": "end_time",
+											"value": "2022-04-30"
+										},
+										{
+											"key": "cancel_time",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 19:41:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 19:41:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"trip has been created\",\n    \"details\": {\n        \"origin\": \"tehran\",\n        \"destination\": \"shiraz\",\n        \"total_spots\": \"12\",\n        \"start_time\": \"2022-04-29\",\n        \"end_time\": \"2022-04-30\",\n        \"cancel_time\": \"1\",\n        \"updated_at\": \"2022-04-29T19:41:10.000000Z\",\n        \"created_at\": \"2022-04-29T19:41:10.000000Z\",\n        \"id\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{flix_base_url}}trips/5/?origin=isfahan&destination=kashan2&total_spots=10&start_time=2022-04-29&end_time=2022-04-30&cancel_time=1",
+							"host": [
+								"{{flix_base_url}}trips"
+							],
+							"path": [
+								"5",
+								""
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "isfahan"
+								},
+								{
+									"key": "destination",
+									"value": "kashan2"
+								},
+								{
+									"key": "total_spots",
+									"value": "10"
+								},
+								{
+									"key": "start_time",
+									"value": "2022-04-29"
+								},
+								{
+									"key": "end_time",
+									"value": "2022-04-30"
+								},
+								{
+									"key": "cancel_time",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a trip",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{flix_base_url}}trips/5/?origin=isfahan&destination=kashan2&total_spots=10&start_time=2022-04-29&end_time=2022-04-30&cancel_time=1",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"path": [
+										"5",
+										""
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "isfahan"
+										},
+										{
+											"key": "destination",
+											"value": "kashan2"
+										},
+										{
+											"key": "total_spots",
+											"value": "10"
+										},
+										{
+											"key": "start_time",
+											"value": "2022-04-29"
+										},
+										{
+											"key": "end_time",
+											"value": "2022-04-30"
+										},
+										{
+											"key": "cancel_time",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:42:24 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:42:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 5,\n        \"origin\": \"isfahan\",\n        \"destination\": \"kashan2\",\n        \"total_spots\": \"10\",\n        \"start_time\": \"2022-04-29\",\n        \"end_time\": \"2022-04-30\",\n        \"cancel_time\": \"1\",\n        \"created_at\": \"2022-04-29T20:30:06.000000Z\",\n        \"updated_at\": \"2022-04-29T20:42:24.000000Z\",\n        \"deleted_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show single trip details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{flix_base_url}}trips/2",
+							"host": [
+								"{{flix_base_url}}trips"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show single trip details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}trips/2",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:09:03 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:09:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"origin\": \"tehran\",\n        \"destination\": \"shiraz\",\n        \"total_spots\": 12,\n        \"start_time\": \"2022-04-29 00:00:00\",\n        \"end_time\": \"2022-04-30 00:00:00\",\n        \"cancel_time\": 1,\n        \"created_at\": \"2022-04-29T19:46:25.000000Z\",\n        \"updated_at\": \"2022-04-29T19:46:25.000000Z\",\n        \"deleted_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Trip",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{flix_base_url}}trips/2",
+							"host": [
+								"{{flix_base_url}}trips"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Trip",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}trips/2",
+									"host": [
+										"{{flix_base_url}}trips"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:29:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Apr 2022 20:29:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Trip Action",
+			"item": [
+				{
+					"name": "Reserve A Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{flix_base_url}}tripaction/reserve?origin=Towneton&destination=Balistrerifort&passenger_name=Davood&selected_spots=4",
+							"host": [
+								"{{flix_base_url}}tripaction"
+							],
+							"path": [
+								"reserve"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "Towneton"
+								},
+								{
+									"key": "destination",
+									"value": "Balistrerifort"
+								},
+								{
+									"key": "passenger_name",
+									"value": "Davood"
+								},
+								{
+									"key": "selected_spots",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reserve A Trip (error)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}tripaction/reserve?origin=tehran&destination=shiraz&selected_spots=8",
+									"host": [
+										"{{flix_base_url}}tripaction"
+									],
+									"path": [
+										"reserve"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "tehran"
+										},
+										{
+											"key": "destination",
+											"value": "shiraz"
+										},
+										{
+											"key": "passenger_name",
+											"value": "Shayan",
+											"disabled": true
+										},
+										{
+											"key": "selected_spots",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 09:17:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 09:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"failed\",\n    \"message\": {\n        \"passenger_name\": [\n            \"The passenger name field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Reserve A Trip (success)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}tripaction/reserve?origin=Towneton&destination=Balistrerifort&passenger_name=Hasan&selected_spots=1",
+									"host": [
+										"{{flix_base_url}}tripaction"
+									],
+									"path": [
+										"reserve"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "Towneton"
+										},
+										{
+											"key": "destination",
+											"value": "Balistrerifort"
+										},
+										{
+											"key": "passenger_name",
+											"value": "Hasan"
+										},
+										{
+											"key": "selected_spots",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 13:35:21 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 13:35:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"origin\": \"Towneton\",\n        \"destination\": \"Balistrerifort\",\n        \"passenger_name\": \"Hasan\",\n        \"selected_spots\": \"1\"\n    }\n}"
+						},
+						{
+							"name": "Reserve A Trip (unsuccess)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}tripaction/reserve?origin=Towneton&destination=Balistrerifort&passenger_name=Davood&selected_spots=5",
+									"host": [
+										"{{flix_base_url}}tripaction"
+									],
+									"path": [
+										"reserve"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "Towneton"
+										},
+										{
+											"key": "destination",
+											"value": "Balistrerifort"
+										},
+										{
+											"key": "passenger_name",
+											"value": "Davood"
+										},
+										{
+											"key": "selected_spots",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 13:36:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 13:36:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"there is not enough spot to reserve\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Cancel A Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{flix_base_url}}tripaction/cancel?origin=Towneton&destination=Balistrerifort&passenger_name=Davood",
+							"host": [
+								"{{flix_base_url}}tripaction"
+							],
+							"path": [
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "Towneton"
+								},
+								{
+									"key": "destination",
+									"value": "Balistrerifort"
+								},
+								{
+									"key": "passenger_name",
+									"value": "Davood"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cancel A Trip (error)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}tripaction/reserve?origin=tehran&destination=shiraz&selected_spots=8",
+									"host": [
+										"{{flix_base_url}}tripaction"
+									],
+									"path": [
+										"reserve"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "tehran"
+										},
+										{
+											"key": "destination",
+											"value": "shiraz"
+										},
+										{
+											"key": "passenger_name",
+											"value": "Shayan",
+											"disabled": true
+										},
+										{
+											"key": "selected_spots",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 09:17:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 09:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"failed\",\n    \"message\": {\n        \"passenger_name\": [\n            \"The passenger name field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Cancel A Trip (success)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{flix_base_url}}tripaction/cancel?origin=Towneton&destination=Balistrerifort&passenger_name=Davood",
+									"host": [
+										"{{flix_base_url}}tripaction"
+									],
+									"path": [
+										"cancel"
+									],
+									"query": [
+										{
+											"key": "origin",
+											"value": "Towneton"
+										},
+										{
+											"key": "destination",
+											"value": "Balistrerifort"
+										},
+										{
+											"key": "passenger_name",
+											"value": "Davood"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8091"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 14:03:40 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Apr 2022 14:03:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"the trip has been canceled\",\n    \"data\": {\n        \"origin\": \"Towneton\",\n        \"destination\": \"Balistrerifort\",\n        \"passenger_name\": \"Davood\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
