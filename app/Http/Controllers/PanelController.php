@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Trips;
-use Illuminate\Http\Request;
 
 class PanelController extends Controller
 {
